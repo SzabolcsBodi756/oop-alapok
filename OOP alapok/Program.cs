@@ -11,16 +11,12 @@ namespace OOP_alapok
     public class Szemely
     {
         public string Nev { get; set; }
+
+        private int _Kor;
         public int Kor
         {
-            get { return Kor; }
-            set 
-            {
-                if (Kor > 0)
-                {
-                    Kor = value;
-                }
-            }
+            get => _Kor;
+            set => _Kor = value >= 0 ? value : -1;
         }
 
         public Szemely(string nev, int kor)
@@ -41,8 +37,8 @@ namespace OOP_alapok
         {
             Szemely tanulo = new Szemely("Kiss Máté", 19);
 
-            
-            
+            Console.WriteLine(tanulo);
+                
 
         }
     }
