@@ -11,7 +11,7 @@ namespace OOP_alapok
 
     public class Szemely
     {
-        public string Nev { get; set; }
+        protected string Nev { get; set; }
 
         private int _Kor;
         public int Kor
@@ -52,6 +52,24 @@ namespace OOP_alapok
         }
     }
 
+    public class Hallgato : Szemely
+    {
+
+        public string _NeptunKod;
+
+        public string NeptunKod
+        {
+            get => _NeptunKod;
+            set => _NeptunKod = value.Length <= 6 ? value : "-1";
+        }
+
+        public Hallgato(string neptunKod, string nev, int kor) : base(nev, kor)
+        {
+            NeptunKod = neptunKod;
+        }
+
+    }
+
     internal class Program
     {
         static void Main(string[] args)
@@ -71,6 +89,11 @@ namespace OOP_alapok
             szamla.Kivesz(750);
 
             Console.WriteLine(szamla.Egyenleg);
+
+            Hallgato hallgato = new Hallgato("654123", "Kiss Anita", 21);
+
+            Console.WriteLine(hallgato);
+            Console.WriteLine(hallgato._NeptunKod);
                 
         }
     }
