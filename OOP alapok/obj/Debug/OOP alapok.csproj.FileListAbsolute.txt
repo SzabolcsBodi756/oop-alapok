@@ -1,0 +1,7 @@
+C:\Users\Bodisz\source\repos\OOP alapok\OOP alapok\bin\Debug\OOP alapok.exe.config
+C:\Users\Bodisz\source\repos\OOP alapok\OOP alapok\bin\Debug\OOP alapok.exe
+C:\Users\Bodisz\source\repos\OOP alapok\OOP alapok\bin\Debug\OOP alapok.pdb
+C:\Users\Bodisz\source\repos\OOP alapok\OOP alapok\obj\Debug\OOP alapok.csproj.AssemblyReference.cache
+C:\Users\Bodisz\source\repos\OOP alapok\OOP alapok\obj\Debug\OOP alapok.csproj.CoreCompileInputs.cache
+C:\Users\Bodisz\source\repos\OOP alapok\OOP alapok\obj\Debug\OOP alapok.exe
+C:\Users\Bodisz\source\repos\OOP alapok\OOP alapok\obj\Debug\OOP alapok.pdb
