@@ -17,7 +17,18 @@ namespace OOP_alapok
         public int Kor
         {
             get => _Kor;
-            set => _Kor = value >= 0 ? value : -1;
+            set
+            {
+                if (value > -1)
+                {
+                    _Kor = value;
+                }
+                else
+                {
+                    Console.WriteLine("Az életkor nem lehet negatív szám!");
+                    _Kor = 0;
+                }
+            }
         }
 
         public Szemely(string nev, int kor)
@@ -28,7 +39,7 @@ namespace OOP_alapok
 
         public override string ToString()
         {
-            return $"{Nev} jelenleg {Kor} éves";
+            return $"Az személy neve: {Nev}";
         }
     }
 
@@ -60,7 +71,19 @@ namespace OOP_alapok
         public string NeptunKod
         {
             get => _NeptunKod;
-            set => _NeptunKod = value.Length <= 6 ? value : "-1";
+            set
+            {
+                if (value.Length < 7)
+                {
+                    _NeptunKod = value;
+                }
+                else
+                {
+                    Console.WriteLine("A Neptunkód nem lehet 6 számjegynél hosszabb!");
+                    _NeptunKod = "123456";
+                }
+            }
+
         }
 
         public Hallgato(string neptunKod, string nev, int kor) : base(nev, kor)
@@ -74,7 +97,10 @@ namespace OOP_alapok
     {
         static void Main(string[] args)
         {
-            Szemely tanulo = new Szemely("Kiss Máté", 19);
+
+            List<Hallgato> lista = new List<Hallgato>();
+
+            /*Szemely tanulo = new Szemely("Kiss Máté", 19);
 
             Console.WriteLine(tanulo);
 
@@ -92,9 +118,26 @@ namespace OOP_alapok
 
             Hallgato hallgato = new Hallgato("654123", "Kiss Anita", 21);
 
-            Console.WriteLine(hallgato);
-            Console.WriteLine(hallgato._NeptunKod);
-                
+            Console.WriteLine(hallgato._NeptunKod);*/
+
+            Hallgato hallgato1 = new Hallgato("000001", "Kiss Anita", 21);
+
+            lista.Add(hallgato1);
+
+            Hallgato hallgato2 = new Hallgato("000002", "Kiss Máté", 22);
+
+            lista.Add(hallgato2);
+
+            Hallgato hallgato3 = new Hallgato("000003", "Kiss András", 23);
+
+            lista.Add(hallgato3);
+
+            foreach (var item in lista)
+            {
+                Console.WriteLine(item);
+            }
+
+
         }
     }
 }
