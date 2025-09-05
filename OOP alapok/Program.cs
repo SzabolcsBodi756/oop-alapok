@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -31,6 +32,26 @@ namespace OOP_alapok
         }
     }
 
+    public class BankSzamla
+    {
+        public int Egyenleg { get; set; }
+
+        public BankSzamla(int egyenleg)
+        {
+            Egyenleg = egyenleg;
+        }
+
+        public void Betesz(int plusz)
+        {
+            Egyenleg += plusz;
+        }
+
+        public void Kivesz(int minus)
+        {
+            Egyenleg -= minus >= 0 ? Egyenleg -= minus : Egyenleg = 0;
+        }
+    }
+
     internal class Program
     {
         static void Main(string[] args)
@@ -38,8 +59,19 @@ namespace OOP_alapok
             Szemely tanulo = new Szemely("Kiss Máté", 19);
 
             Console.WriteLine(tanulo);
-                
 
+            BankSzamla szamla = new BankSzamla(1000);
+
+            Console.WriteLine(szamla.Egyenleg);
+
+            szamla.Betesz(500);
+
+            Console.WriteLine(szamla.Egyenleg);
+
+            szamla.Kivesz(750);
+
+            Console.WriteLine(szamla.Egyenleg);
+                
         }
     }
 }
