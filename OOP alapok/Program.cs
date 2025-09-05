@@ -6,11 +6,23 @@ using System.Threading.Tasks;
 
 namespace OOP_alapok
 {
+
+    public class Szemely
+    {
+        public string nev = "Kiss Péter";
+
+        public int kor = 35;
+        
+    }
+
     internal class Program
     {
         static void Main(string[] args)
         {
-            
+            Szemely tanulo = new Szemely();
+
+            Console.WriteLine(tanulo.nev);
+            Console.WriteLine(tanulo.kor);
         }
     }
 }
