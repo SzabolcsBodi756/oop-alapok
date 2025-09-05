@@ -9,10 +9,14 @@ using System.Threading.Tasks;
 namespace OOP_alapok
 {
 
+    //1. feladat:
     public class Szemely
     {
+
+        //8. feladat:
         protected string Nev { get; set; }
 
+        //3. feladat:
         private int _Kor;
         public int Kor
         {
@@ -31,18 +35,28 @@ namespace OOP_alapok
             }
         }
 
+        //2. feladat:
         public Szemely(string nev, int kor)
         {
-            this.Nev = nev;
-            this.Kor = kor;
+            Nev = nev;
+            Kor = kor;
         }
 
+        //4. feladat:
         public override string ToString()
         {
             return $"Az személy neve: {Nev}";
         }
+
+
+        //10. feladat, polimorf metódus:
+        public virtual void Fizetes()
+        {
+
+        }
     }
 
+    //5. feladat:
     public class BankSzamla
     {
         public int Egyenleg { get; set; }
@@ -57,12 +71,14 @@ namespace OOP_alapok
             Egyenleg += plusz;
         }
 
+        //10. feladat, polimorf metódus:
         public void Kivesz(int minus)
         {
             Egyenleg -= minus >= 0 ? Egyenleg -= minus : Egyenleg = 0;
         }
     }
 
+    //6. feladat:
     public class Hallgato : Szemely
     {
 
@@ -91,18 +107,41 @@ namespace OOP_alapok
             NeptunKod = neptunKod;
         }
 
+        //10. feladat, polimorf metódus:
+        public override void Fizetes()
+        {
+            Console.WriteLine("A hallgató jelenleg tanul, ezért nincs bére.");
+        }
+
+    }
+
+    public class Dolgozo : Szemely
+    {
+        public int Ber { get; set; }
+    
+        public Dolgozo(int ber, string nev, int kor) : base(nev, kor)
+        {
+            Ber = ber;
+        }
+
+        public override void Fizetes()
+        {
+            Console.WriteLine($"A dolgozó már végez munkát, ez a bére: {Ber}");
+        }
     }
 
     internal class Program
     {
         static void Main(string[] args)
         {
-
+            //lista a 9. feladathoz:
             List<Hallgato> lista = new List<Hallgato>();
 
-            /*Szemely tanulo = new Szemely("Kiss Máté", 19);
+            //kiíratások a különféle feladatokhoz kapcsolódóan:
+            Szemely szemely = new Szemely("Kiss Máté", 19);
 
-            Console.WriteLine(tanulo);
+            Console.WriteLine(szemely);
+            Console.WriteLine(szemely.Kor);
 
             BankSzamla szamla = new BankSzamla(1000);
 
@@ -116,9 +155,10 @@ namespace OOP_alapok
 
             Console.WriteLine(szamla.Egyenleg);
 
+            //9. feladat:
             Hallgato hallgato = new Hallgato("654123", "Kiss Anita", 21);
 
-            Console.WriteLine(hallgato._NeptunKod);*/
+            Console.WriteLine(hallgato._NeptunKod);
 
             Hallgato hallgato1 = new Hallgato("000001", "Kiss Anita", 21);
 
@@ -137,7 +177,12 @@ namespace OOP_alapok
                 Console.WriteLine(item);
             }
 
+            //10. feladat:
+            Dolgozo dolgozo = new Dolgozo(350000, "Dolgozó Béla", 43);
 
+            dolgozo.Fizetes();
+
+            hallgato1.Fizetes();
         }
     }
 }
