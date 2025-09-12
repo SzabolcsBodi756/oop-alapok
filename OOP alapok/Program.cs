@@ -17,19 +17,20 @@ namespace OOP_alapok
         protected string Nev { get; set; }
 
         //3. feladat:
+        private int _Kor { get; set; }
         public int Kor
         {
-            get => Kor;
+            get => _Kor;
             set
             {
                 if (value > -1)
                 {
-                    Kor = value;
+                    _Kor = value;
                 }
                 else
                 {
                     Console.WriteLine("Az életkor nem lehet negatív szám!");
-                    Kor = 0;
+                    _Kor = 0;
                 }
             }
         }
